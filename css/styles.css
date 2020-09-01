@@ -1,35 +1,46 @@
+:root {
+  --blue: #198cdf;
+  --red: #ee3004;
+  --white: #fff;
+  --black: #000;
+  --transparent-grey: rgba(72,72,72,0.5);
+}
+
 * {
 	padding: 0;
 	margin: 0;
 	font-family: Arial, sans-serif;
 	text-decoration: none;
-	color: #000;
+	color: var(--black);
+}
+
+html, body, main {
+    height: 100%;
+    display: flex;
+}
+
+body {
+	background: var(--blue);
 }
 
 #mainContain {
+	display: flex;
 	position: relative;
 	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
+	height: 100%;
 	z-index: 1;
-}
-
-#mainColor1, #mainColor2 {
-	position: absolute;
-	top: 0;
-	width: 50vw;
-	height: 100vh;
-	background: #198cdf;
-	z-index: 3;
+	box-sizing: border-box;
+/*	overflow-y: scroll;*/
 }
 
 #mainColor1 {
-	left: -20vw;
-}
-
-#mainColor2 {
-	left: 0;
-	transform: skew(10deg);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 40vw;
+	min-height: 100%;
+	background: var(--blue);
+	z-index: 3;
 }
 
 #logo {
@@ -38,7 +49,7 @@
 	left: 5vh;
 	width: 25vh;
 	height: 25vh;
-	background: #fff;
+	background: var(--white);
 	z-index: 4;
 	border-radius: 100%;
 	overflow: hidden;
@@ -51,29 +62,41 @@
 	width: 90%;
 }
 
-#mainImage {
+#mainImageContain {
 	position: absolute;
 	top: 0;
-	right: 0;
-	height: 100vh;
+	left: 40vw;
+	width: 60vw;
+	height: 100%;
+}
+
+#mainImage {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 	z-index: 2;
 }
 
-#mainTextContain {
+#mainContentContain {
 	position: absolute;
 	top: 35vh;
-	height: 65vh;
 	z-index: 6;
+}
+
+#mainTextContain {
+	width: 90vw;
 }
 
 #mainText {
 	background: rgba(256,256,256,1);
-	width: 90vw;
-	padding: 2vw;
-	margin: 0 3vw;
-
+	width: 100%;
+	padding: 5%;
 	border-radius: 5vw;
-	box-shadow: 2px 2px 5px rgba(72,72,72,0.5)
+	box-shadow: 2px 2px 5px var(--transparent-grey);
+}
+
+#mainText a {
+	color: var(--blue);
 }
 
 #sm {
@@ -90,7 +113,7 @@
 #sm a {
 	width: 10vh;
 	height: 10vh;
-	background: #fff;
+	background: var(--blue);
 	border-radius: 100%;
 	display: flex;
 	justify-content: center;
@@ -101,4 +124,40 @@
 #fb {
 	width: 9vh;
 	height: 9vh;
+}
+
+#fb-feed {
+	background: rgba(256,256,256,1);
+	width: 90vw;
+	padding: 3vw 2vw;
+	margin: 2vh 3vw;
+	border-radius: 5vw;
+	box-shadow: 2px 2px 5px var(--transparent-grey);
+	display: flex;
+	justify-content: center;
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    background-color: var(--blue);
+  }
+
+  #mainContentContain {
+  	padding: 0;
+  	margin: 0;
+  	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+  }
+
+  #mainTextContain {
+	width: 40vw;
+	padding: 0;
+  }
+
+  #fb-feed {
+  	width: 45vw;
+	margin: 0 3vw;
+  }
 }
